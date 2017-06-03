@@ -24,5 +24,17 @@ namespace Internet_Cafe_Management_System
         {
             InitializeComponent();
         }
+
+        private void btn_listpc_Click(object sender, RoutedEventArgs e)
+        {
+            PcLibraryList list = new PcLibraryList();
+            list.Owner = this;
+            list.ShowDialog();
+        }
+
+        private void btn_exit_Click(object sender, RoutedEventArgs e)
+        {   
+            App.Current.Shutdown();
+        }
     }
 }
