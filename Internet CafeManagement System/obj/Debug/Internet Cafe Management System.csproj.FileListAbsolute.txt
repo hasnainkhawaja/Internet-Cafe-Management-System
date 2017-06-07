@@ -1,0 +1,3 @@
+C:\Users\Hasnain\Documents\GitHub\Internet-Cafe-Management-System\Internet CafeManagement System\bin\Debug\Internet CafeManagement System.exe.config
+C:\Users\Hasnain\Documents\GitHub\Internet-Cafe-Management-System\Internet CafeManagement System\obj\Debug\Internet CafeManagement System.exe
+C:\Users\Hasnain\Documents\GitHub\Internet-Cafe-Management-System\Internet CafeManagement System\obj\Debug\Internet CafeManagement System.pdb

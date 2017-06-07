@@ -1,0 +1,8 @@
+C:\Users\Hasnain\Documents\GitHub\Internet-Cafe-Management-System\Internet CafeManagement System\bin\Debug\Internet CafeManagement System.exe.config
+C:\Users\Hasnain\Documents\GitHub\Internet-Cafe-Management-System\Internet CafeManagement System\bin\Debug\Internet CafeManagement System.exe
+C:\Users\Hasnain\Documents\GitHub\Internet-Cafe-Management-System\Internet CafeManagement System\bin\Debug\Internet CafeManagement System.pdb
+C:\Users\Hasnain\Documents\GitHub\Internet-Cafe-Management-System\Internet CafeManagement System\obj\Debug\Internet_CafeManagement_System.Form1.resources
+C:\Users\Hasnain\Documents\GitHub\Internet-Cafe-Management-System\Internet CafeManagement System\obj\Debug\Internet_CafeManagement_System.Properties.Resources.resources
+C:\Users\Hasnain\Documents\GitHub\Internet-Cafe-Management-System\Internet CafeManagement System\obj\Debug\Internet CafeManagement System.csproj.GenerateResource.Cache
+C:\Users\Hasnain\Documents\GitHub\Internet-Cafe-Management-System\Internet CafeManagement System\obj\Debug\Internet CafeManagement System.exe
+C:\Users\Hasnain\Documents\GitHub\Internet-Cafe-Management-System\Internet CafeManagement System\obj\Debug\Internet CafeManagement System.pdb
