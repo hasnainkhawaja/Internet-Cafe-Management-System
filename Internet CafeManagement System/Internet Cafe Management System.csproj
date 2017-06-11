@@ -64,6 +64,13 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Computers.cs" />
+    <Compile Include="Models\DatabaseContext.cs" />
+    <Compile Include="Models\Floor.cs" />
+    <Compile Include="Models\Papers.cs" />
+    <Compile Include="Models\Products.cs" />
+    <Compile Include="Models\Rates.cs" />
+    <Compile Include="Models\Shift.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -92,9 +99,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
