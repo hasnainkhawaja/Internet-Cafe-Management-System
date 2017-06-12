@@ -19,6 +19,7 @@ namespace Internet_CafeManagement_System.Models
                     command.Connection = connection;
                     connection.Open();
                     SqlDataReader reader = command.ExecuteReader();
+                    command.CommandType = CommandType.StoredProcedure;
                     DataTable table = new DataTable();
                     table.Load(reader);
                     return table;

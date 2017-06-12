@@ -1,6 +1,6 @@
 ﻿namespace Internet_CafeManagement_System
 {
-    partial class Form1
+    partial class ManagementScreen
     {
         /// <summary>
         /// Required designer variable.
@@ -55,6 +55,7 @@
             this.btn_remove_paper = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
             this.groupBox14 = new System.Windows.Forms.GroupBox();
+            this.btn_reset_paper = new System.Windows.Forms.Button();
             this.isColor = new System.Windows.Forms.CheckBox();
             this.btn_save_paper = new System.Windows.Forms.Button();
             this.paper_second_price = new System.Windows.Forms.TextBox();
@@ -81,10 +82,10 @@
             this.list_rates = new System.Windows.Forms.ListBox();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.removepc = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.addsaveComputer = new System.Windows.Forms.Button();
             this.computerActive = new System.Windows.Forms.CheckBox();
             this.floorDDl = new System.Windows.Forms.ComboBox();
             this.computerIp = new System.Windows.Forms.TextBox();
@@ -113,7 +114,7 @@
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.list_shift = new System.Windows.Forms.ListBox();
             this.tabPage11 = new System.Windows.Forms.TabPage();
-            this.btn_reset_paper = new System.Windows.Forms.Button();
+            this.reset_computer = new System.Windows.Forms.Button();
             this.metroTabControl1.SuspendLayout();
             this.tabPage9.SuspendLayout();
             this.groupBox10.SuspendLayout();
@@ -139,15 +140,15 @@
             // 
             // metroTabControl1
             // 
+            this.metroTabControl1.Controls.Add(this.metroTabPage1);
             this.metroTabControl1.Controls.Add(this.tabPage9);
             this.metroTabControl1.Controls.Add(this.tabPage8);
             this.metroTabControl1.Controls.Add(this.tabPage13);
-            this.metroTabControl1.Controls.Add(this.metroTabPage1);
             this.metroTabControl1.Controls.Add(this.tabPage10);
             this.metroTabControl1.Controls.Add(this.tabPage11);
             this.metroTabControl1.Location = new System.Drawing.Point(11, 30);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 3;
+            this.metroTabControl1.SelectedIndex = 4;
             this.metroTabControl1.Size = new System.Drawing.Size(602, 427);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.UseSelectable = true;
@@ -171,7 +172,7 @@
             this.groupBox10.Location = new System.Drawing.Point(216, 250);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Size = new System.Drawing.Size(358, 102);
-            this.groupBox10.TabIndex = 7;
+            this.groupBox10.TabIndex = 2;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Remove Products";
             // 
@@ -180,7 +181,7 @@
             this.btn_product_remove.Location = new System.Drawing.Point(263, 62);
             this.btn_product_remove.Name = "btn_product_remove";
             this.btn_product_remove.Size = new System.Drawing.Size(80, 29);
-            this.btn_product_remove.TabIndex = 1;
+            this.btn_product_remove.TabIndex = 0;
             this.btn_product_remove.Text = "&Remove";
             this.btn_product_remove.UseVisualStyleBackColor = true;
             this.btn_product_remove.Click += new System.EventHandler(this.btn_product_remove_Click);
@@ -213,7 +214,7 @@
             this.groupBox11.Location = new System.Drawing.Point(216, 19);
             this.groupBox11.Name = "groupBox11";
             this.groupBox11.Size = new System.Drawing.Size(358, 225);
-            this.groupBox11.TabIndex = 8;
+            this.groupBox11.TabIndex = 1;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Add/Edit Products";
             // 
@@ -224,7 +225,7 @@
             this.productEndTime.Location = new System.Drawing.Point(93, 155);
             this.productEndTime.Name = "productEndTime";
             this.productEndTime.Size = new System.Drawing.Size(250, 20);
-            this.productEndTime.TabIndex = 7;
+            this.productEndTime.TabIndex = 4;
             // 
             // product_startime
             // 
@@ -233,7 +234,7 @@
             this.product_startime.Location = new System.Drawing.Point(93, 121);
             this.product_startime.Name = "product_startime";
             this.product_startime.Size = new System.Drawing.Size(250, 20);
-            this.product_startime.TabIndex = 8;
+            this.product_startime.TabIndex = 3;
             // 
             // label19
             // 
@@ -258,7 +259,7 @@
             this.btn_product_reset.Location = new System.Drawing.Point(177, 183);
             this.btn_product_reset.Name = "btn_product_reset";
             this.btn_product_reset.Size = new System.Drawing.Size(80, 29);
-            this.btn_product_reset.TabIndex = 1;
+            this.btn_product_reset.TabIndex = 6;
             this.btn_product_reset.Text = "&Reset";
             this.btn_product_reset.UseVisualStyleBackColor = true;
             this.btn_product_reset.Click += new System.EventHandler(this.btn_product_reset_Click);
@@ -268,7 +269,7 @@
             this.btn_add_save_product.Location = new System.Drawing.Point(263, 183);
             this.btn_add_save_product.Name = "btn_add_save_product";
             this.btn_add_save_product.Size = new System.Drawing.Size(80, 29);
-            this.btn_add_save_product.TabIndex = 1;
+            this.btn_add_save_product.TabIndex = 5;
             this.btn_add_save_product.Text = "&Add/Save";
             this.btn_add_save_product.UseVisualStyleBackColor = true;
             this.btn_add_save_product.Click += new System.EventHandler(this.btn_add_save_product_Click);
@@ -305,7 +306,7 @@
             this.product_title.Location = new System.Drawing.Point(93, 18);
             this.product_title.Name = "product_title";
             this.product_title.Size = new System.Drawing.Size(250, 20);
-            this.product_title.TabIndex = 1;
+            this.product_title.TabIndex = 0;
             // 
             // label15
             // 
@@ -350,7 +351,7 @@
             this.groupBox12.Name = "groupBox12";
             this.groupBox12.Padding = new System.Windows.Forms.Padding(10);
             this.groupBox12.Size = new System.Drawing.Size(200, 333);
-            this.groupBox12.TabIndex = 9;
+            this.groupBox12.TabIndex = 0;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "Products";
             // 
@@ -382,7 +383,7 @@
             this.groupBox13.Location = new System.Drawing.Point(240, 263);
             this.groupBox13.Name = "groupBox13";
             this.groupBox13.Size = new System.Drawing.Size(351, 102);
-            this.groupBox13.TabIndex = 10;
+            this.groupBox13.TabIndex = 2;
             this.groupBox13.TabStop = false;
             this.groupBox13.Text = "Remove papers";
             // 
@@ -391,7 +392,7 @@
             this.btn_remove_paper.Location = new System.Drawing.Point(265, 62);
             this.btn_remove_paper.Name = "btn_remove_paper";
             this.btn_remove_paper.Size = new System.Drawing.Size(80, 29);
-            this.btn_remove_paper.TabIndex = 1;
+            this.btn_remove_paper.TabIndex = 0;
             this.btn_remove_paper.Text = "&Remove";
             this.btn_remove_paper.UseVisualStyleBackColor = true;
             this.btn_remove_paper.Click += new System.EventHandler(this.btn_remove_paper_Click);
@@ -419,9 +420,19 @@
             this.groupBox14.Location = new System.Drawing.Point(240, 26);
             this.groupBox14.Name = "groupBox14";
             this.groupBox14.Size = new System.Drawing.Size(351, 225);
-            this.groupBox14.TabIndex = 11;
+            this.groupBox14.TabIndex = 1;
             this.groupBox14.TabStop = false;
             this.groupBox14.Text = "Add/Edit Paper";
+            // 
+            // btn_reset_paper
+            // 
+            this.btn_reset_paper.Location = new System.Drawing.Point(179, 178);
+            this.btn_reset_paper.Name = "btn_reset_paper";
+            this.btn_reset_paper.Size = new System.Drawing.Size(80, 29);
+            this.btn_reset_paper.TabIndex = 5;
+            this.btn_reset_paper.Text = "&Reset";
+            this.btn_reset_paper.UseVisualStyleBackColor = true;
+            this.btn_reset_paper.Click += new System.EventHandler(this.btn_reset_paper_Click);
             // 
             // isColor
             // 
@@ -429,7 +440,7 @@
             this.isColor.Location = new System.Drawing.Point(103, 135);
             this.isColor.Name = "isColor";
             this.isColor.Size = new System.Drawing.Size(81, 17);
-            this.isColor.TabIndex = 2;
+            this.isColor.TabIndex = 3;
             this.isColor.Text = "Color Paper";
             this.isColor.UseVisualStyleBackColor = true;
             // 
@@ -438,7 +449,7 @@
             this.btn_save_paper.Location = new System.Drawing.Point(265, 178);
             this.btn_save_paper.Name = "btn_save_paper";
             this.btn_save_paper.Size = new System.Drawing.Size(80, 29);
-            this.btn_save_paper.TabIndex = 1;
+            this.btn_save_paper.TabIndex = 4;
             this.btn_save_paper.Text = "&Add/Save";
             this.btn_save_paper.UseVisualStyleBackColor = true;
             this.btn_save_paper.Click += new System.EventHandler(this.btn_save_paper_Click);
@@ -448,7 +459,7 @@
             this.paper_second_price.Location = new System.Drawing.Point(103, 91);
             this.paper_second_price.Name = "paper_second_price";
             this.paper_second_price.Size = new System.Drawing.Size(242, 20);
-            this.paper_second_price.TabIndex = 1;
+            this.paper_second_price.TabIndex = 2;
             // 
             // paper_single_price
             // 
@@ -471,7 +482,7 @@
             this.paper_title.Location = new System.Drawing.Point(103, 18);
             this.paper_title.Name = "paper_title";
             this.paper_title.Size = new System.Drawing.Size(242, 20);
-            this.paper_title.TabIndex = 1;
+            this.paper_title.TabIndex = 0;
             // 
             // label26
             // 
@@ -498,7 +509,7 @@
             this.groupBox15.Name = "groupBox15";
             this.groupBox15.Padding = new System.Windows.Forms.Padding(10);
             this.groupBox15.Size = new System.Drawing.Size(200, 346);
-            this.groupBox15.TabIndex = 12;
+            this.groupBox15.TabIndex = 0;
             this.groupBox15.TabStop = false;
             this.groupBox15.Text = "Pepers";
             // 
@@ -532,7 +543,7 @@
             this.groupBox16.Location = new System.Drawing.Point(220, 224);
             this.groupBox16.Name = "groupBox16";
             this.groupBox16.Size = new System.Drawing.Size(359, 127);
-            this.groupBox16.TabIndex = 10;
+            this.groupBox16.TabIndex = 2;
             this.groupBox16.TabStop = false;
             this.groupBox16.Text = "\'";
             // 
@@ -541,7 +552,7 @@
             this.btn_remove.Location = new System.Drawing.Point(262, 74);
             this.btn_remove.Name = "btn_remove";
             this.btn_remove.Size = new System.Drawing.Size(80, 29);
-            this.btn_remove.TabIndex = 1;
+            this.btn_remove.TabIndex = 0;
             this.btn_remove.Text = "&Remove";
             this.btn_remove.UseVisualStyleBackColor = true;
             this.btn_remove.Click += new System.EventHandler(this.btn_remove_Click);
@@ -567,7 +578,7 @@
             this.groupBox17.Location = new System.Drawing.Point(220, 18);
             this.groupBox17.Name = "groupBox17";
             this.groupBox17.Size = new System.Drawing.Size(359, 181);
-            this.groupBox17.TabIndex = 11;
+            this.groupBox17.TabIndex = 1;
             this.groupBox17.TabStop = false;
             this.groupBox17.Text = "Add/Edit Rate";
             // 
@@ -576,7 +587,7 @@
             this.btn_reset_rates.Location = new System.Drawing.Point(176, 111);
             this.btn_reset_rates.Name = "btn_reset_rates";
             this.btn_reset_rates.Size = new System.Drawing.Size(80, 29);
-            this.btn_reset_rates.TabIndex = 1;
+            this.btn_reset_rates.TabIndex = 4;
             this.btn_reset_rates.Text = "&Reset";
             this.btn_reset_rates.UseVisualStyleBackColor = true;
             this.btn_reset_rates.Click += new System.EventHandler(this.btn_reset_rates_Click);
@@ -586,7 +597,7 @@
             this.btn_rate_add_save.Location = new System.Drawing.Point(262, 111);
             this.btn_rate_add_save.Name = "btn_rate_add_save";
             this.btn_rate_add_save.Size = new System.Drawing.Size(80, 29);
-            this.btn_rate_add_save.TabIndex = 1;
+            this.btn_rate_add_save.TabIndex = 3;
             this.btn_rate_add_save.Text = "&Add/Save";
             this.btn_rate_add_save.UseVisualStyleBackColor = true;
             this.btn_rate_add_save.Click += new System.EventHandler(this.btn_rate_add_save_Click);
@@ -597,7 +608,7 @@
             this.rate_active.Location = new System.Drawing.Point(93, 90);
             this.rate_active.Name = "rate_active";
             this.rate_active.Size = new System.Drawing.Size(56, 17);
-            this.rate_active.TabIndex = 3;
+            this.rate_active.TabIndex = 2;
             this.rate_active.Text = "Active";
             this.rate_active.UseVisualStyleBackColor = true;
             // 
@@ -613,7 +624,7 @@
             this.rate_title.Location = new System.Drawing.Point(93, 18);
             this.rate_title.Name = "rate_title";
             this.rate_title.Size = new System.Drawing.Size(249, 20);
-            this.rate_title.TabIndex = 1;
+            this.rate_title.TabIndex = 0;
             // 
             // label30
             // 
@@ -640,7 +651,7 @@
             this.groupBox18.Name = "groupBox18";
             this.groupBox18.Padding = new System.Windows.Forms.Padding(10);
             this.groupBox18.Size = new System.Drawing.Size(200, 353);
-            this.groupBox18.TabIndex = 12;
+            this.groupBox18.TabIndex = 0;
             this.groupBox18.TabStop = false;
             this.groupBox18.Text = "Rate List";
             // 
@@ -673,23 +684,24 @@
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Controls.Add(this.removepc);
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Location = new System.Drawing.Point(209, 208);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(371, 142);
-            this.groupBox3.TabIndex = 4;
+            this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Remove Computers";
             // 
-            // button1
+            // removepc
             // 
-            this.button1.Location = new System.Drawing.Point(277, 82);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(80, 29);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "&Remove";
-            this.button1.UseVisualStyleBackColor = true;
+            this.removepc.Location = new System.Drawing.Point(277, 82);
+            this.removepc.Name = "removepc";
+            this.removepc.Size = new System.Drawing.Size(80, 29);
+            this.removepc.TabIndex = 0;
+            this.removepc.Text = "&Remove";
+            this.removepc.UseVisualStyleBackColor = true;
+            this.removepc.Click += new System.EventHandler(this.removepc_Click);
             // 
             // label8
             // 
@@ -703,7 +715,8 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Controls.Add(this.reset_computer);
+            this.groupBox2.Controls.Add(this.addsaveComputer);
             this.groupBox2.Controls.Add(this.computerActive);
             this.groupBox2.Controls.Add(this.floorDDl);
             this.groupBox2.Controls.Add(this.computerIp);
@@ -715,18 +728,19 @@
             this.groupBox2.Location = new System.Drawing.Point(209, 17);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(371, 175);
-            this.groupBox2.TabIndex = 5;
+            this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Add/Edit Computer";
             // 
-            // button2
+            // addsaveComputer
             // 
-            this.button2.Location = new System.Drawing.Point(277, 131);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(80, 29);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "&Add/Save";
-            this.button2.UseVisualStyleBackColor = true;
+            this.addsaveComputer.Location = new System.Drawing.Point(277, 131);
+            this.addsaveComputer.Name = "addsaveComputer";
+            this.addsaveComputer.Size = new System.Drawing.Size(80, 29);
+            this.addsaveComputer.TabIndex = 4;
+            this.addsaveComputer.Text = "&Add/Save";
+            this.addsaveComputer.UseVisualStyleBackColor = true;
+            this.addsaveComputer.Click += new System.EventHandler(this.addsaveComputer_Click);
             // 
             // computerActive
             // 
@@ -757,7 +771,7 @@
             this.computer_title.Location = new System.Drawing.Point(80, 18);
             this.computer_title.Name = "computer_title";
             this.computer_title.Size = new System.Drawing.Size(277, 20);
-            this.computer_title.TabIndex = 1;
+            this.computer_title.TabIndex = 0;
             // 
             // label4
             // 
@@ -803,7 +817,7 @@
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(10);
             this.groupBox1.Size = new System.Drawing.Size(200, 333);
-            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Computers";
             // 
@@ -814,6 +828,7 @@
             this.computer_list.Name = "computer_list";
             this.computer_list.Size = new System.Drawing.Size(174, 303);
             this.computer_list.TabIndex = 0;
+            this.computer_list.DoubleClick += new System.EventHandler(this.computer_list_DoubleClick);
             // 
             // tabPage10
             // 
@@ -834,7 +849,7 @@
             this.groupBox7.Location = new System.Drawing.Point(220, 197);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(359, 162);
-            this.groupBox7.TabIndex = 10;
+            this.groupBox7.TabIndex = 2;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Remove Shifts";
             // 
@@ -843,7 +858,7 @@
             this.shift_remove.Location = new System.Drawing.Point(273, 86);
             this.shift_remove.Name = "shift_remove";
             this.shift_remove.Size = new System.Drawing.Size(80, 29);
-            this.shift_remove.TabIndex = 1;
+            this.shift_remove.TabIndex = 0;
             this.shift_remove.Text = "&Remove";
             this.shift_remove.UseVisualStyleBackColor = true;
             this.shift_remove.Click += new System.EventHandler(this.shift_remove_Click);
@@ -872,7 +887,7 @@
             this.groupBox8.Location = new System.Drawing.Point(220, 6);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(359, 185);
-            this.groupBox8.TabIndex = 11;
+            this.groupBox8.TabIndex = 1;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Add/Edit Shifts";
             // 
@@ -893,7 +908,7 @@
             this.shift_endtime.Location = new System.Drawing.Point(80, 101);
             this.shift_endtime.Name = "shift_endtime";
             this.shift_endtime.Size = new System.Drawing.Size(273, 20);
-            this.shift_endtime.TabIndex = 4;
+            this.shift_endtime.TabIndex = 2;
             // 
             // shift_starttime
             // 
@@ -902,14 +917,14 @@
             this.shift_starttime.Location = new System.Drawing.Point(80, 66);
             this.shift_starttime.Name = "shift_starttime";
             this.shift_starttime.Size = new System.Drawing.Size(273, 20);
-            this.shift_starttime.TabIndex = 4;
+            this.shift_starttime.TabIndex = 1;
             // 
             // btn_shift_addsave
             // 
             this.btn_shift_addsave.Location = new System.Drawing.Point(273, 143);
             this.btn_shift_addsave.Name = "btn_shift_addsave";
             this.btn_shift_addsave.Size = new System.Drawing.Size(80, 29);
-            this.btn_shift_addsave.TabIndex = 1;
+            this.btn_shift_addsave.TabIndex = 4;
             this.btn_shift_addsave.Text = "&Add/Save";
             this.btn_shift_addsave.UseVisualStyleBackColor = true;
             this.btn_shift_addsave.Click += new System.EventHandler(this.btn_shift_addsave_Click);
@@ -928,7 +943,7 @@
             this.shift_title.Location = new System.Drawing.Point(80, 36);
             this.shift_title.Name = "shift_title";
             this.shift_title.Size = new System.Drawing.Size(273, 20);
-            this.shift_title.TabIndex = 1;
+            this.shift_title.TabIndex = 0;
             // 
             // label13
             // 
@@ -973,7 +988,7 @@
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Padding = new System.Windows.Forms.Padding(10);
             this.groupBox9.Size = new System.Drawing.Size(200, 353);
-            this.groupBox9.TabIndex = 12;
+            this.groupBox9.TabIndex = 0;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Shift Plan";
             // 
@@ -996,15 +1011,15 @@
             this.tabPage11.TabIndex = 4;
             this.tabPage11.Text = "Employee Management";
             // 
-            // btn_reset_paper
+            // reset_computer
             // 
-            this.btn_reset_paper.Location = new System.Drawing.Point(179, 178);
-            this.btn_reset_paper.Name = "btn_reset_paper";
-            this.btn_reset_paper.Size = new System.Drawing.Size(80, 29);
-            this.btn_reset_paper.TabIndex = 3;
-            this.btn_reset_paper.Text = "&Reset";
-            this.btn_reset_paper.UseVisualStyleBackColor = true;
-            this.btn_reset_paper.Click += new System.EventHandler(this.btn_reset_paper_Click);
+            this.reset_computer.Location = new System.Drawing.Point(191, 131);
+            this.reset_computer.Name = "reset_computer";
+            this.reset_computer.Size = new System.Drawing.Size(80, 29);
+            this.reset_computer.TabIndex = 5;
+            this.reset_computer.Text = "&Reset";
+            this.reset_computer.UseVisualStyleBackColor = true;
+            this.reset_computer.Click += new System.EventHandler(this.reset_computer_Click);
             // 
             // Form1
             // 
@@ -1054,10 +1069,10 @@
         private MetroFramework.Controls.MetroTabControl metroTabControl1;
         private MetroFramework.Controls.MetroTabPage metroTabPage1;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button removepc;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button addsaveComputer;
         private System.Windows.Forms.CheckBox computerActive;
         private System.Windows.Forms.ComboBox floorDDl;
         private System.Windows.Forms.TextBox computerIp;
@@ -1137,6 +1152,7 @@
         private System.Windows.Forms.Button btn_reset_rates;
         private System.Windows.Forms.Button btn_reset_shift;
         private System.Windows.Forms.Button btn_reset_paper;
+        private System.Windows.Forms.Button reset_computer;
     }
 }
 

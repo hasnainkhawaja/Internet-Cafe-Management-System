@@ -13,9 +13,9 @@ using System.Windows.Forms;
 
 namespace Internet_CafeManagement_System
 {
-    public partial class Form1 : MetroForm
+    public partial class ManagementScreen : MetroForm
     {
-        public Form1()
+        public ManagementScreen()
         {
             InitializeComponent();
         }
@@ -27,6 +27,7 @@ namespace Internet_CafeManagement_System
             loadShifts();
             loadPapers();
             loadFloors();
+            loadComputers();
         }
 
         private void floor_btn_remove_Click(object sender, EventArgs e)
@@ -557,6 +558,7 @@ namespace Internet_CafeManagement_System
 
 
         #region computer management
+        Computers SelectedComputer { set; get; }
         public void loadFloors()
         {
             SqlCommand command = new SqlCommand("SelectFloors");
@@ -572,10 +574,129 @@ namespace Internet_CafeManagement_System
 
             }).ToList();
             floorDDl.DisplayMember = "title";
+            floorDDl.ValueMember = "id";
             floorDDl.DataSource = floors;
         }
+        public void loadComputers()
+        {
+            SqlCommand command = new SqlCommand("SelectComputers");
+            command.CommandType = CommandType.StoredProcedure;
+
+            DataTable table = DatabaseContext.GetData(command);
+
+            List<Computers> Computers = table.AsEnumerable().Select(row => new Computers()
+            {
+                Id = Convert.ToInt32(row["id"]),
+                PcName = row["pcName"].ToString(),
+                Active = Convert.ToBoolean(row["isactive"]),
+                FloorId= Convert.ToInt32(row["floorid"]),
+                Busy = Convert.ToBoolean(row["isBusy"]),
+                IP = row["ipaddress"].ToString(),
+            }).ToList();
+            computer_list.DisplayMember = "PcName";
+            computer_list.DataSource = Computers;
+        }
+
+        private void reset_computer_Click(object sender, EventArgs e)
+        {
+            loadComputers();
+            computer_title.Clear();
+            computerIp.Clear();
+            floorDDl.SelectedIndex = 0;
+            computerActive.Checked = false;
+        }
+
+        private void addsaveComputer_Click(object sender, EventArgs e)
+        {
+            if (computer_title.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Enter computer title", "Invalid title", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else if (computerIp.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Enter computer ip", "Invalid IP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else if (SelectedComputer == null)
+            {
+
+                SqlCommand command = new SqlCommand("InsertComputer");
+                command.Parameters.AddWithValue("@pcname", computer_title.Text.Trim());
+                command.Parameters.AddWithValue("@ipaddress", computerIp.Text.Trim());
+                command.Parameters.AddWithValue("@floorid", floorDDl.SelectedValue);
+                command.Parameters.AddWithValue("@isactive", computerActive.Checked);
+                command.Parameters.AddWithValue("@isBusy", false);
 
 
+                if (Convert.ToBoolean(DatabaseContext.Execute(command)))
+                {
+                    
+                    loadComputers();
+                    computer_title.Clear();
+                    computerIp.Clear();
+                    floorDDl.SelectedIndex = 0;
+                    computerActive.Checked = false;
+
+                    MessageBox.Show("Computer added successfully", "Computer added", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Please try again", "Try again", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+            else
+            {
+                SqlCommand command = new SqlCommand("UpdateComputer");
+                command.Parameters.AddWithValue("@id", SelectedComputer.Id);
+                command.Parameters.AddWithValue("@pcname", computer_title.Text.Trim());
+                command.Parameters.AddWithValue("@ipaddress", computerIp.Text.Trim());
+                command.Parameters.AddWithValue("@floorid", floorDDl.SelectedValue);
+                command.Parameters.AddWithValue("@isactive", computerActive.Checked);
+
+                if (Convert.ToBoolean(DatabaseContext.Execute(command)))
+                {
+                    loadComputers();
+                    computer_title.Clear();
+                    computerIp.Clear();
+                    floorDDl.SelectedIndex = 0;
+                    computerActive.Checked = false;
+                    MessageBox.Show("Computer updated successfully", "Computer updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Please try again", "Try again", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void removepc_Click(object sender, EventArgs e)
+        {
+            if (computer_list.SelectedItems.Count > 0)
+            {
+                foreach (Object selectedItem in computer_list.SelectedItems)
+                {
+                    SqlCommand command = new SqlCommand("DeleteComputer");
+                    command.Parameters.AddWithValue("@id", (selectedItem as Computers).Id);
+                    DatabaseContext.Execute(command);
+                }
+
+                loadComputers();
+            }
+        }
+
+        private void computer_list_DoubleClick(object sender, EventArgs e)
+        {
+            if (computer_list.SelectedItems.Count > 0)
+            {
+                SelectedComputer = (computer_list.SelectedItem as Computers);
+                computer_title.Text = SelectedComputer.PcName;
+                computerIp.Text = SelectedComputer.IP;
+                floorDDl.SelectedValue = SelectedComputer.FloorId;
+                computerActive.Checked = SelectedComputer.Active;
+            }
+        }
         #endregion
+
+
     }
 }
