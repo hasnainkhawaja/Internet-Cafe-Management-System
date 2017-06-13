@@ -38,7 +38,6 @@ namespace Internet_CafeManagement_System
                 PcName = row["pcName"].ToString(),
                 Active = Convert.ToBoolean(row["isactive"]),
                 FloorId = Convert.ToInt32(row["floorid"]),
-                Busy = Convert.ToBoolean(row["isBusy"]),
                 IP = row["ipaddress"].ToString(),
                 Status = (ComputerStatus)row["status"],
             }).ToList();
@@ -136,15 +135,11 @@ namespace Internet_CafeManagement_System
         private void loadSqlDependency()
         {
             tableDependency = new SqlTableDependency<Computers>("Data Source=MY-DESKTOP;Initial Catalog=InternetcafeManagment;Integrated Security=True", "Computers");
-
             tableDependency.OnStatusChanged += TableDependency_OnStatusChanged;
             tableDependency.OnChanged += TableDependency_OnChanged;
             tableDependency.OnError += TableDependency_OnError;
-            tableDependency.TraceLevel = TraceLevel.Verbose;
-
-            tableDependency.TraceListener = new TextWriterTraceListener(Console.Out);
-
-
+            tableDependency.TraceLevel = TraceLevel.Verbose; 
+            tableDependency.TraceListener = new TextWriterTraceListener(Console.Out);  
             tableDependency.TraceListener = new TextWriterTraceListener(File.AppendText("F:\\logs\\output.txt"));
             tableDependency.Start();
 
@@ -191,11 +186,57 @@ namespace Internet_CafeManagement_System
                 }
                 else if(computerBtn.FloorId==2)
                 {
-
+                    var btnFind = floor2.Controls.OfType<Button>().ToList().SingleOrDefault(x => x.Tag.ToString().Equals(computer.Id.ToString()));
+                    if (btnFind != null)
+                    {
+                        if (computerBtn.Status == ComputerStatus.Idle)
+                        {
+                            btnFind.BackColor = Color.Green;
+                            btnFind.ForeColor = Color.White;
+                        }
+                        else if (computerBtn.Status == ComputerStatus.Busy)
+                        {
+                            btnFind.BackColor = Color.Yellow;
+                            btnFind.ForeColor = Color.Black;
+                        }
+                        else if (computerBtn.Status == ComputerStatus.Payment)
+                        {
+                            btnFind.BackColor = Color.Red;
+                            btnFind.ForeColor = Color.White;
+                        }
+                        else if (computerBtn.Status == ComputerStatus.SessionClosed)
+                        {
+                            btnFind.BackColor = Color.Pink;
+                            btnFind.ForeColor = Color.Black;
+                        }
+                    }
                 }
                 else
                 {
-
+                    var btnFind = floor3.Controls.OfType<Button>().ToList().SingleOrDefault(x => x.Tag.ToString().Equals(computer.Id.ToString()));
+                    if (btnFind != null)
+                    {
+                        if (computerBtn.Status == ComputerStatus.Idle)
+                        {
+                            btnFind.BackColor = Color.Green;
+                            btnFind.ForeColor = Color.White;
+                        }
+                        else if (computerBtn.Status == ComputerStatus.Busy)
+                        {
+                            btnFind.BackColor = Color.Yellow;
+                            btnFind.ForeColor = Color.Black;
+                        }
+                        else if (computerBtn.Status == ComputerStatus.Payment)
+                        {
+                            btnFind.BackColor = Color.Red;
+                            btnFind.ForeColor = Color.White;
+                        }
+                        else if (computerBtn.Status == ComputerStatus.SessionClosed)
+                        {
+                            btnFind.BackColor = Color.Pink;
+                            btnFind.ForeColor = Color.Black;
+                        }
+                    }
                 }
             }
         }
@@ -207,7 +248,10 @@ namespace Internet_CafeManagement_System
 
         private void computerOperation(object sender, EventArgs e)
         {
-            
+            Computers computer =  Computers.SingleOrDefault(x => x.Id == Convert.ToInt32((sender as Button).Tag));
+            SessionGenerator session = new SessionGenerator(computer.Id);
+            session.Owner = this;
+            session.ShowDialog();
         }
 
         private void addProductCart(object sender, EventArgs e)

@@ -590,7 +590,6 @@ namespace Internet_CafeManagement_System
                 PcName = row["pcName"].ToString(),
                 Active = Convert.ToBoolean(row["isactive"]),
                 FloorId= Convert.ToInt32(row["floorid"]),
-                Busy = Convert.ToBoolean(row["isBusy"]),
                 IP = row["ipaddress"].ToString(),
             }).ToList();
             computer_list.DisplayMember = "PcName";
@@ -624,7 +623,6 @@ namespace Internet_CafeManagement_System
                 command.Parameters.AddWithValue("@ipaddress", computerIp.Text.Trim());
                 command.Parameters.AddWithValue("@floorid", floorDDl.SelectedValue);
                 command.Parameters.AddWithValue("@isactive", computerActive.Checked);
-                command.Parameters.AddWithValue("@isBusy", false);
 
 
                 if (Convert.ToBoolean(DatabaseContext.Execute(command)))

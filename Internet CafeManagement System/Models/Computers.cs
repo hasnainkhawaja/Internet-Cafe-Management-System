@@ -13,7 +13,6 @@ namespace Internet_CafeManagement_System.Models
         public string IP { set; get; }
         public int FloorId { set; get; }
         public bool Active { set; get; }
-        public bool Busy { set; get; }
         public ComputerStatus Status { set; get; }
     }
     public enum ComputerStatus

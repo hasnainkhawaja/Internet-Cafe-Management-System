@@ -30,7 +30,7 @@ namespace Internet_CafeManagement_System.Models
             }
         }
 
-        public static object Execute(SqlCommand command)
+        public static bool Execute(SqlCommand command)
         {
             try
             {

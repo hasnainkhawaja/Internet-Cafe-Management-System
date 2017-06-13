@@ -14,3 +14,4 @@ C:\Users\Hasnain\Documents\GitHub\Internet-Cafe-Management-System\Internet CafeM
 C:\Users\Hasnain\Documents\GitHub\Internet-Cafe-Management-System\Internet CafeManagement System\bin\Debug\TableDependency.dll
 C:\Users\Hasnain\Documents\GitHub\Internet-Cafe-Management-System\Internet CafeManagement System\bin\Debug\TableDependency.SqlClient.dll
 C:\Users\Hasnain\Documents\GitHub\Internet-Cafe-Management-System\Internet CafeManagement System\bin\Debug\TableDependency.SqlClient.Where.dll
+C:\Users\Hasnain\Documents\GitHub\Internet-Cafe-Management-System\Internet CafeManagement System\obj\Debug\Internet_CafeManagement_System.SessionGenerator.resources
